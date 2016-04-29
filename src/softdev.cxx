@@ -4,6 +4,7 @@ using namespace std;
 
 int main()
 {
-	cout<<"Hello World"<<endl;
-	return 0;
+	cout<<"Genetic Algorithm v1.0\n"<<endl;
+	GeneticAlgorithm g1;
+	return g1.start(20, 50);
 }

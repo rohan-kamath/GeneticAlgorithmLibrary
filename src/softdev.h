@@ -2,5 +2,6 @@
 #define SOFTDEV_H
 
 #include <iostream>
+#include "GeneticAlgorithm.h"
 
 #endif
