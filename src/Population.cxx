@@ -7,7 +7,10 @@ Population::Population(int popSize)
 
 int Population::evolve(int generations)
 {
-	Organism o1('1');
+	for(int i = 0; i < popSize; i++)
+	{
+		
+	}
 	for(int i = 1; i < generations + 1; i++)
 	{
 		std::cout<<"Generation: "<<i<<std::endl;
@@ -17,3 +20,6 @@ int Population::evolve(int generations)
 
 	return 0;
 }
+
+//int Population::chooseSurvivors(){}
+//int Population::updatePopulation(){}
