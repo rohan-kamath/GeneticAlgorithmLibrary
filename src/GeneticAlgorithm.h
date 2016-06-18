@@ -1,15 +1,28 @@
 #ifndef GENETICALGORITHM_H
 #define GENETICALGORITHM_H
 
-#include "Population.h"
+#include <string>
+#include <vector>
+#include <memory>
+#include "GAGenome.h"
+
+using std::string;
+using std::vector;
 
 class GeneticAlgorithm
 {
-	private:
-	 int generations;
+    public:
+        GeneticAlgorithm(int population, int generations, GAGenome genome);
+        void evolve();
+        string stats();
 
-	public:
-	 int start(int generations, int popSize);
+    protected:
+
+    private:
+        int population;
+        int generations;
+
+        vector<GAGenome> organisms;
 };
 
-#endif
+#endif // GENETICALGORITHM_H
