@@ -1,6 +1,6 @@
 include_directories(${softdev_includes})
 
-set(source_files softdev.cxx GeneticAlgorithm.cxx Population.cxx Organism.cxx)
+set(source_files main.cxx GeneticAlgorithm.cxx GAGenome.cxx GABinaryGenome.cxx)
 
 add_executable(../softdev ${source_files})
 
