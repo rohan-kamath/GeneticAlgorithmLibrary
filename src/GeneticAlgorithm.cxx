@@ -1,26 +1,27 @@
 #include "GeneticAlgorithm.h"
 #include "GAGenome.h"
+#include "GABinaryGenome.h"
 
-GeneticAlgorithm::GeneticAlgorithm(int population, int generations, GAGenome genome)
+using namespace std;
+
+GeneticAlgorithm::GeneticAlgorithm(int population, int generations, GAGenome & genome)
 {
     this->generations = generations;
     this->population = population;
 
-    vector<GAGenome> temp(population, genome);
-    organisms = temp;
-
+    vector<GAGenome*> test(population, &genome);
+    organisms = test;
 }
 
 void GeneticAlgorithm::evolve()
 {
-    //for(int i = 0; i < generations; i++)
-    //{
+    for(int i = 0; i < organisms.size(); i++)
+    {
         //TODO
 	//choose which will reproduce
 	//crossovers
-
-	//organisms.at(i).calcFit();
-    //}
+	organisms.at(i)->calcFit();
+    }
 }
 
 std::string GeneticAlgorithm::stats()

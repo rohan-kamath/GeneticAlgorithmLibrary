@@ -7,8 +7,9 @@ class GAGenome
     public:
         GAGenome(float (*f)(GAGenome&));
         GAGenome();
-        void calcFit();
-	//virtual ~GAGenome();
+        GAGenome(const GAGenome&);
+        virtual void calcFit();
+        virtual ~GAGenome();
 
     protected:
 

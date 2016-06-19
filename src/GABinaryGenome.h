@@ -10,13 +10,13 @@ using std::string;
 class GABinaryGenome : public GAGenome
 {
     public:
-        using GAGenome::GAGenome;
+        //using GAGenome::GAGenome;
 	GABinaryGenome(float (*f)(GAGenome&));
 	void setSize(int size);
 	float getFitness();
 	int length();
 	int gene(int i);
-	void calcFit();
+	void calcFit() override;
 	~GABinaryGenome();
 
     protected:

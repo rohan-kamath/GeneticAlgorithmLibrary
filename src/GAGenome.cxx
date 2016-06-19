@@ -1,8 +1,14 @@
 #include "GAGenome.h"
+#include <iostream>
 
 GAGenome::GAGenome()
 {
 
+}
+
+GAGenome::GAGenome(const GAGenome & gen)
+{
+    *this = gen;
 }
 
 GAGenome::GAGenome(float (*f)(GAGenome&))
@@ -13,7 +19,10 @@ GAGenome::GAGenome(float (*f)(GAGenome&))
 void GAGenome::calcFit()
 {
     GAGenome * gen;
-    gen = this;
-    fit = (*fitness_ptr)(*gen);
+    std::cout << fitness_ptr(*this);
 }
 
+GAGenome::~GAGenome()
+{
+
+}

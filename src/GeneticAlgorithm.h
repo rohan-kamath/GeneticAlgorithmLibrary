@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include "GAGenome.h"
+#include <iostream>
 
 using std::string;
 using std::vector;
@@ -12,7 +13,7 @@ using std::vector;
 class GeneticAlgorithm
 {
     public:
-        GeneticAlgorithm(int population, int generations, GAGenome genome);
+        GeneticAlgorithm(int population, int generations, GAGenome & genome);
         void evolve();
         string stats();
 
@@ -22,7 +23,7 @@ class GeneticAlgorithm
         int population;
         int generations;
 
-        vector<GAGenome> organisms;
+        vector<GAGenome*> organisms;
 };
 
 #endif // GENETICALGORITHM_H
