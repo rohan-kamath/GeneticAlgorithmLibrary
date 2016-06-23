@@ -9,6 +9,9 @@ class GAGenome
         GAGenome();
         GAGenome(const GAGenome&);
         virtual void calcFit();
+        virtual void crossover(GAGenome & gen);
+        virtual void mutation();
+        virtual void init();
         virtual ~GAGenome();
 
     protected:

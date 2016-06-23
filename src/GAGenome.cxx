@@ -22,6 +22,21 @@ void GAGenome::calcFit()
     std::cout << fitness_ptr(*this);
 }
 
+void GAGenome::crossover(GAGenome & gen)
+{
+    
+}
+
+void GAGenome::mutation()
+{
+
+}
+
+void GAGenome::init()
+{
+
+}
+
 GAGenome::~GAGenome()
 {
 

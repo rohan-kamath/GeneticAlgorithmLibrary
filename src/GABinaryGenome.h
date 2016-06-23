@@ -17,6 +17,9 @@ class GABinaryGenome : public GAGenome
 	int length();
 	int gene(int i);
 	void calcFit() override;
+	void crossover(GAGenome & gen) override;
+	void mutation() override;
+        void init() override;
 	~GABinaryGenome();
 
     protected:
@@ -26,6 +29,8 @@ class GABinaryGenome : public GAGenome
         string chromosome;
         int size;
         float (*fitness_ptr)(GAGenome&);
+        void singlepoint(GAGenome & gen);
+        void twopoint(GAGenome & gen);
 };
 
 #endif // GABINARYGENOME_H

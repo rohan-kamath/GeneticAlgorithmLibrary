@@ -31,6 +31,31 @@ void GABinaryGenome::calcFit()
 	fit = getFitness();
 }
 
+void GABinaryGenome::crossover(GAGenome & gen)
+{
+	singlepoint(gen);
+}
+
+void GABinaryGenome::singlepoint(GAGenome & gen)
+{
+	
+}
+
+void GABinaryGenome::twopoint(GAGenome & gen)
+{
+
+}
+
+void GABinaryGenome::mutation()
+{
+	
+}
+
+void GABinaryGenome::init()
+{
+	//TODO
+}
+
 GABinaryGenome::~GABinaryGenome()
 {
 
