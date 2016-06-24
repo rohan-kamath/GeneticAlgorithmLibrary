@@ -1,6 +1,8 @@
 #include <iostream>
 #include "GeneticAlgorithm.h"
 #include "GABinaryGenome.h"
+#include <time.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -12,7 +14,7 @@ float fitness(GAGenome & g)
     {
 	fitness += genome.gene(i);
     }
-    cout << "in the function pointer" << endl;
+    //cout << fitness << endl;
     return fitness;
 }
 
@@ -20,8 +22,11 @@ int length = 10;
 
 int main()
 {
-    GABinaryGenome genome(fitness);
-    GeneticAlgorithm ga(100, 100, genome);
+
+    srand(time(0));
+
+    GABinaryGenome genome(length, fitness);
+    GeneticAlgorithm ga(200, 1, genome);
 
     ga.evolve();
     //cout << ga.stats() << endl;
