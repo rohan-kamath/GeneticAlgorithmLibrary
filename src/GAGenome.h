@@ -9,11 +9,10 @@ class GAGenome
         GAGenome(float (*f)(GAGenome&));
         GAGenome();
         GAGenome(GAGenome&);
-        virtual void calcFit();
+        virtual float calcFit();
         virtual float fitness() const;
-	virtual float fitness(int x);
         virtual int gene(int i);
-        virtual void crossover(GAGenome& p1, GAGenome& p2, GAGenome& c1, GAGenome& c2);
+        virtual void crossover(GAGenome& p1, GAGenome& p2, GAGenome*& c1, GAGenome*& c2);
         virtual void mutation();
         virtual void init();
         virtual void setGene(std::string str);
@@ -24,12 +23,12 @@ class GAGenome
 
         virtual GAGenome* clone();
 
+	float fit;
 	int size;
 	float (*fitness_ptr)(GAGenome&);
     protected:
 
     private:
-        float fit;
 };
 
 #endif // GAGENOME_H

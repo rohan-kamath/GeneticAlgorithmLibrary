@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sstream>
 
 using namespace std;
 
@@ -49,18 +50,20 @@ int GABinaryGenome::gene(int i)
 	return 0;
 }
 
-void GABinaryGenome::calcFit()
+float GABinaryGenome::calcFit()
 {
-	fit = getFitness();
+	//fit = getFitness();
+	//cout << fit << endl;
 	//cout << getFitness() << endl;
+	return getFitness(); 
 }
 
-void GABinaryGenome::crossover(GAGenome& p1, GAGenome& p2, GAGenome& c1, GAGenome& c2)
+void GABinaryGenome::crossover(GAGenome& p1, GAGenome& p2, GAGenome*& c1, GAGenome*& c2)
 {
 	singlepoint(p1, p2, c1, c2);
 }
 
-void GABinaryGenome::singlepoint(GAGenome& p1, GAGenome& p2, GAGenome& c1, GAGenome& c2)
+void GABinaryGenome::singlepoint(GAGenome& p1, GAGenome& p2, GAGenome*& c1, GAGenome*& c2)
 {
 	int point = rand() % size;
 	string child1str = "";
@@ -90,17 +93,17 @@ void GABinaryGenome::singlepoint(GAGenome& p1, GAGenome& p2, GAGenome& c1, GAGen
 		}
         }
 
-	/*cout<<"c1 gene bef: ";
-	c1.printGenes();
-	c1.setGene(child1str);
-	cout<<"c1 gene aft: ";
-	c1.printGenes();
+	//cout<<"c1 gene bef: ";
+	//c1.printGenes();
+	c1->setGene(child1str);
+	//cout<<"c1 gene aft: ";
+	//c1.printGenes();
 
-	cout<<"\n c2 gene bef: ";
-	c2.printGenes();
-	c2.setGene(child2str);
-	cout<<"c2 gene aft: ";
-	c2.printGenes();*/
+	//cout<<"\n c2 gene bef: ";
+	//c2.printGenes();
+	c2->setGene(child2str);
+	//cout<<"c2 gene aft: ";
+	//c2.printGenes();*/
 }
 
 void GABinaryGenome::twopoint(GAGenome & gen)
@@ -160,7 +163,13 @@ void GABinaryGenome::init()
 
 string GABinaryGenome::genes()
 {
-	return chromosome;
+	string temp = "";
+	for(int i = 0; i < size; i++)
+	{
+		temp += chromosome.at(i);
+		temp += " ";
+	}
+	return temp;
 }
 
 void GABinaryGenome::printGenes()
@@ -171,11 +180,6 @@ void GABinaryGenome::printGenes()
 	}
 
 	cout << endl;
-}
-
-float GABinaryGenome::fitness(int x)
-{
-	return this->fit;
 }
 
 void GABinaryGenome::setGene(string str)

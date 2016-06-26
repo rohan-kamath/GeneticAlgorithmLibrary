@@ -28,9 +28,10 @@ class GeneticAlgorithm
         int population;
         int generations;
         float avgFit;
-        GAGenome genomeType;
+        GAGenome * genomeType;
         vector<GAGenome*> organisms;
         vector<GAGenome*> temp;
+        string statistics;
 };
 
 #endif // GENETICALGORITHM_H

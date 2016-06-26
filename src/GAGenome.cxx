@@ -23,14 +23,9 @@ GAGenome::GAGenome(float (*f)(GAGenome&))
     this->fitness_ptr = f;
 }
 
-void GAGenome::calcFit()
+float GAGenome::calcFit()
 {
-    std::cout << fitness_ptr(*this);
-}
 
-float GAGenome::fitness(int x)
-{
-    return fit;
 }
 
 float GAGenome::fitness() const
@@ -43,7 +38,7 @@ int GAGenome::gene(int i)
 
 }
 
-void GAGenome::crossover(GAGenome & p1, GAGenome & p2, GAGenome& c1, GAGenome& c2)
+void GAGenome::crossover(GAGenome & p1, GAGenome & p2, GAGenome*& c1, GAGenome*& c2)
 {
     
 }

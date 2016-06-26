@@ -15,17 +15,18 @@ class GABinaryGenome : public GAGenome
 	GABinaryGenome(GAGenome & g);
         void setSize(int size);
 	float getFitness();
-        float fitness(int x) override;
 	int length();
 	int gene(int i) override;
-	void calcFit() override;
-	void crossover(GAGenome& p1, GAGenome& p2, GAGenome& c1, GAGenome& c2) override;
+	float calcFit() override;
+	void crossover(GAGenome& p1, GAGenome& p2, GAGenome*& c1, GAGenome*& c2) override;
 	void mutation() override;
         void init() override;
         void setGene(string str) override;
         string genes() override;
         void printGenes() override;
 	~GABinaryGenome();
+
+	float fit;
 
         virtual GAGenome* clone();
 
@@ -34,9 +35,8 @@ class GABinaryGenome : public GAGenome
     protected:
 
     private:
-	float fit;
         string chromosome;
-        void singlepoint(GAGenome& p1, GAGenome& p2, GAGenome& c1, GAGenome& c2);
+        void singlepoint(GAGenome& p1, GAGenome& p2, GAGenome*& c1, GAGenome*& c2);
         void twopoint(GAGenome & gen);
 };
 
