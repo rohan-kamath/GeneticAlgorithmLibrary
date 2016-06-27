@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int length = 10;
+int length = 26;
 
 float fitness(GAGenome & g)
 {
@@ -16,26 +16,17 @@ float fitness(GAGenome & g)
     {
 	fitness += genome.gene(i);
     }
-    //cout << fitness << endl;
 
-    if(fitness == length)
-    {
-	return 1000000000.0;
-    }
-
-    return fitness + 1;
+    return fitness;
 }
 
 int main()
 {
-
-    srand(time(0));
-
     GABinaryGenome genome(length, fitness);
     GeneticAlgorithm ga(25, 25, genome);
 
     ga.evolve();
-   // cout << ga.stats() << endl;
+    cout << ga.stats() << endl;
 
     return 0;
 }

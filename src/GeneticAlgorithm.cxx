@@ -9,6 +9,7 @@ using namespace std;
 
 GeneticAlgorithm::GeneticAlgorithm(int population, int generations, GAGenome & genome)
 {
+    srand( time(0) );
     this->generations = generations;
     this->population = population;
     this->genomeType = &genome;
@@ -36,14 +37,14 @@ void GeneticAlgorithm::evolve()
 	    return a->fit > b->fit;
 	});
 
-        ostringstream ss;
+        /*ostringstream ss;
 	ss << i + 1;
 
         statistics += "Best organism in generation ";
         statistics += ss.str();
         statistics += ": ";
         statistics += organisms.at(0)->genes();
-        statistics += "\n"; 
+        statistics += "\n";*/ 
     }
 
     sort(organisms.begin(), organisms.end());
